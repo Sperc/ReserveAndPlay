@@ -1,0 +1,30 @@
+<div class="container-fluid" style="background-color: #525B6D;height: 100%">
+  <div class="row align-items-center h-100">
+    <div class="col-5" style="margin-right: auto;margin-left: auto">
+      Aplikacja pomoże naleźć Ci Towje ulubione miejsce do grania!!
+      <!--<ng-autocomplete (selected)="Selected($event)" [classes]="['.ng-autocomplete-input']" [group]="group"></ng-autocomplete>-->
+      <div class="input-group" style="height: 50px">
+        <div class="input-group" style="height: 50px">
+          <input type="text" class="form-control" placeholder="Wybierz miasto..." aria-label="Number" matInput
+                 [formControl]="myControl"
+                 #cityNameOfInput
+                 [matAutocomplete]="auto">
+          <span class="input-group-btn">
+            <button class="btn btn-secondary" type="button" style="height: 50px; background-color:#59A73F"
+                    (click)="openMapComponentBtn(cityNameOfInput.value)">Szukaj</button>
+          </span>
+        </div>
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{ option }}
+          </mat-option>
+        </mat-autocomplete>
+        <div *ngIf="!correctCity">
+          <p style="margin-top: 5px; color: red">
+            Zła nazwa miasta
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

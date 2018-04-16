@@ -1,0 +1,5 @@
+.content {
+  /*top: calc(40px);*/
+  height: calc(100% - 50px);
+  background-color: #525B6D;
+}

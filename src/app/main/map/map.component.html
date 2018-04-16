@@ -1,0 +1,35 @@
+<div class="dropdown floating-panel dropdown-position">
+  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+     aria-haspopup="true" aria-expanded="false">
+    Dropdown
+  </a>
+  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</div>
+
+<form class="floating-panel search-position">
+  <div class="input-group" style="height: 50px">
+    <input type="text" class="form-control" placeholder="Wybierz ulicę..." aria-label="Number" matInput
+           [formControl]="myControl"
+           [matAutocomplete]="auto">
+    <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button" style="height: 50px; background-color:#59A73F">Szukaj</button>
+  </span>
+  </div>
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+      {{ option }}
+    </mat-option>
+  </mat-autocomplete>
+</form>
+
+<div class="" style="height: 100%;margin: 0px; width: 100%;background-color: blue; position: relative">
+  <agm-map [longitude]="longitude" [latitude]="latitude" [zoom]=13 >
+    <agm-marker *ngFor="let playground of playgroundList" [latitude]="playground.latitude"
+                [longitude]="playground.longitude"></agm-marker>
+  </agm-map>
+</div>

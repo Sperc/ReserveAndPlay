@@ -1,0 +1,29 @@
+agm-map {
+  height: calc(100vh - 50px);
+}
+
+.position-on-site {
+  left: 10px;
+  width: 70vh;
+}
+
+.floating-panel {
+  position: absolute;
+  width: 30%;
+  /*top: 80px;*/
+  z-index: 5;
+  /*background-color: #fff;*/
+  /*padding: 5px;*/
+  /*border: 1px solid #999;*/
+  /*font-family: 'Roboto', 'sans-serif';*/
+  /*line-height: 30px;*/
+  /*padding-left: 10px;*/
+}
+.search-position{
+  top:80px;
+  left: 20px;
+}
+.dropdown-position{
+  top:160px;
+  left: 20px;
+}
