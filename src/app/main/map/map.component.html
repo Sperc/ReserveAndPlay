@@ -14,10 +14,12 @@
 <form class="floating-panel search-position">
   <div class="input-group" style="height: 50px">
     <input type="text" class="form-control" placeholder="Wybierz ulicę..." aria-label="Number" matInput
+           #streetInput
            [formControl]="myControl"
            [matAutocomplete]="auto">
     <span class="input-group-btn">
-        <button class="btn btn-secondary" type="button" style="height: 50px; background-color:#59A73F">Szukaj</button>
+        <button class="btn btn-secondary" type="button" style="height: 50px; background-color:#59A73F"
+                (click)="moveCamera(streetInput.value)">Szukaj</button>
   </span>
   </div>
   <mat-autocomplete #auto="matAutocomplete">
@@ -28,8 +30,15 @@
 </form>
 
 <div class="" style="height: 100%;margin: 0px; width: 100%;background-color: blue; position: relative">
-  <agm-map [longitude]="longitude" [latitude]="latitude" [zoom]=13 >
+  <agm-map [longitude]="longitude" [latitude]="latitude" [zoom]="zoom">
     <agm-marker *ngFor="let playground of playgroundList" [latitude]="playground.latitude"
-                [longitude]="playground.longitude"></agm-marker>
+                [longitude]="playground.longitude">
+      <agm-info-window>
+        <p>Godziny otwarcia: {{playground.startHour}}:{{playground.startMinutes}} -
+          {{playground.endHour}}:{{playground.endMinutes}}</p>
+        <p>ul. {{playground.streetName}} {{playground.streetNumber}}</p>
+        <a>Clcik</a>
+      </agm-info-window>
+    </agm-marker>
   </agm-map>
 </div>
